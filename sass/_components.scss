@@ -1,0 +1,23 @@
+.btn {
+  display: block;
+  text-align: center;
+  background-color: var(--clr-bg-tertiary);
+  padding: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 24px;
+  color: var(--clr-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--clr-text-primary);
+    color: var(--clr-bg-tertiary);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
