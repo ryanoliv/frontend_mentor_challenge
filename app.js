@@ -1,14 +1,15 @@
 const buttons = document.querySelectorAll(
   ".section__card--rating-list-numbers"
 );
-
 const submit = document.querySelector(".btn");
+let rating;
+const star = document.querySelector(".section__card--star");
+const text = document.querySelector(".section__card--text");
+const ratingContainer = document.querySelector(".section__card--rating");
+const loader = document.querySelector(".loader");
 
-// for (let i = 0; i < buttons.length; i++) {
-//   buttons[i].addEventListener("click", () => {
-//     buttons[i].classList.toggle("active");
-//   });
-// }
+const userRating = document.querySelector(".user-rating");
+const hiddenSection = document.querySelector(".section__card--dynamic-content");
 
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -19,8 +20,20 @@ buttons.forEach((button) => {
     if (event.target.dataset.correct == "true") {
       correctAnswer++;
     }
-    const rating = button.textContent;
-    console.log(rating);
-    // userRating.textContent = `You selected ${rating}. HOPPA!`;
+    rating = button.textContent;
   });
+});
+
+submit.addEventListener("click", () => {
+  star.classList.add("hidden");
+  text.classList.add("hidden");
+  ratingContainer.classList.add("hidden");
+  submit.style.display = "none";
+  loader.classList.remove("hidden");
+  setTimeout(() => {
+    console.log("Delayed for 3 second.");
+    loader.classList.add("hidden");
+    hiddenSection.classList.remove("hidden");
+    userRating.innerHTML = rating;
+  }, 1500);
 });
